@@ -181,13 +181,26 @@ button:active {
 /* Calculator */
 
 .calculator {
+	width: 100%;
+	max-width: 350px;
 	background: #fff;
 	border: 1px solid #eee;
 	position: fixed;
-	top: -300px;
-	left: 50%
+	top: 40%;
+	left: 50%;	
 	transform: translate(-50%, -50%);
-	padding: 20px;
+	padding: 40px 0px 30px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .calculator__num-button,
@@ -195,16 +208,39 @@ button:active {
 	display: block;
 	width: 40px;
 	height: 40px;
+	letter-spacing: 0;
+	text-align: center;
 	font-size: 25px;
 	padding: 5px;
 	margin: 5px;
 	border: 1px solid #eee;
 }
 
+.calculator__num-button {
+	line-height: 27px;
+}
+
+.calculator__num-button:first-child {
+	order: 1;
+}
+
+.func-button__min {
+	line-height: 24px;
+}
+
+.func-button__dot {
+	line-height: 15px;
+}
+
+.func-button__min {
+	line-height: 24px;
+}
+
 .calculator__display {
 	height: 50px;
 	border: 1px solid #eee;
-	margin-bottom: 30px;	
+	margin-bottom: 20px;
+	width: 80%;
 }
 
 .calculator__num-buttons,
@@ -215,4 +251,13 @@ button:active {
 	display: -o-flex;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.calculator__num-buttons {
+	width: 55%;
+}
+
+.calculator__func-buttons {
+	width: 40%;
 }

@@ -54,7 +54,7 @@ class Calculator {
 	}
 }
 
-const parentEl = document.querySelector('.nav__item_calc');
+const parentEl = document.querySelector('.calc');
 const calculator = new Calculator(parentEl);
 // calculator.createElements();
 
