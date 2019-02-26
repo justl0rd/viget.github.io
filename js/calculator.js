@@ -2,9 +2,20 @@
 
 class Calculator {
 	constructor(parentEl) {
-		//...
+		
+		this.state = {
+			visibility: false
+		}
+
+		console.log(this.state);
+
 		parentEl.append(this.createElements());
-		console.log(parentEl);
+		parentEl.addEventListener('click', this.showElement);
+	}
+
+	showElement(event) {
+		const {target} = event;
+		console.log(target);
 	}
 
 	createElements() {
