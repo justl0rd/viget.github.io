@@ -216,6 +216,11 @@ button:active {
 	border: 1px solid #eee;
 }
 
+.calculator__num-button:hover,
+.calculator__func-button:hover {
+	cursor: pointer;
+}
+
 .calculator__num-button {
 	line-height: 27px;
 }
@@ -232,8 +237,8 @@ button:active {
 	line-height: 15px;
 }
 
-.func-button__min {
-	line-height: 24px;
+.func-button__mul {
+	line-height: 35px;
 }
 
 .calculator__display {
