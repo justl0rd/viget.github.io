@@ -2,23 +2,51 @@
 
 class Calculator {
 	constructor(parentEl) {
-		
 		this.state = {
-			visibility: false
+			isOpen: false
 		}
 
-		console.log(this.state);
-
-		parentEl.append(this.createElements());
-		parentEl.addEventListener('click', this.showElement);
+		this.createElements(parentEl);
+		window.addEventListener('click', this.showElement());
+		this.stateHandler();
 	}
 
-	showElement(event) {
-		const {target} = event;
-		console.log(target);
+	showElement() {
+		const calculator = parentEl.querySelector('.calculator'),
+			state = this.state;
+
+		return e => {
+			const {target} = e;
+
+			if (target.contains(calculator)) {
+				state.isOpen = true;
+				this.stateHandler();
+			}
+
+			if (!parentEl.contains(target)) {
+				state.isOpen = false;
+				this.stateHandler();
+			}
+		}
 	}
 
-	createElements() {
+	stateHandler() {
+		const calculator = parentEl.querySelector('.calculator');
+
+		setTimeout(() => {
+			if (this.state.isOpen) {
+
+				calculator.classList.add('active');
+			}
+			else{
+				calculator.classList.remove('active');
+			}
+		}, 0);
+	}
+
+	createElements(container) {
+		container.innerText = '';
+		
 		const calculator = document.createElement('div'),
 			display = document.createElement('div'),
 			numButtons = document.createElement('div'),
@@ -42,7 +70,7 @@ class Calculator {
 			const funcButton = document.createElement('div');
 
 			for (let key in el) {
-				funcButton.classList.add(`calculator__func-button`, `func-button__${key}`);
+				funcButton.classList.add(`calculator__func-button`, `calculator__func-button_${key}`);
 				funcButton.innerText = el[key];
 			}
 
@@ -50,13 +78,13 @@ class Calculator {
 		});
 
 		calculator.append(display, numButtons, funcButtons);
-		return calculator;
+		container.append(calculator);
 	}
 }
 
 const parentEl = document.querySelector('.calc');
 const calculator = new Calculator(parentEl);
-// calculator.createElements();
+
 
 
 // <div class="calculator">
