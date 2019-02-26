@@ -1,0 +1,179 @@
+/* ----- Specification ----- */
+
+body {
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	background: url(../img/bg.jpg) no-repeat center center/cover;
+	color: #404048;
+	font-size: 14px;
+	letter-spacing: 0.02em;
+	position: relative;
+}
+
+div,
+p,
+a,
+span {
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+	line-height: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #081d42;
+	padding: 0;
+	margin: 0;
+
+}
+
+h1 {
+	font-size: 58px;
+}
+
+h2 {
+	font-size: 29px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 23px;
+}
+
+h5 {
+	font-size: 21px;
+}
+
+h6 {
+	font-size: 13px;
+}
+
+a,
+a:focus,
+a:hover,
+a:active  {
+	transition: all 0.4s ease;
+	text-decoration: none;
+}
+
+input:focus,
+input,
+input:hover,
+input:active,
+button:focus,
+button,
+button:hover,
+button:active {
+	outline: none;
+}
+
+.btn:focus {
+	box-shadow: none;
+}
+
+.btn {
+	border-radius: 0;
+	background: #1cb883;
+	border-bottom: 4px solid #149d6f;
+	color: #fff;
+	text-align: center;
+	width: 156px;
+}
+
+.btn:hover {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+.btn:active {
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+}
+
+/* Navigtion */
+.main {
+	position: relative;
+	height: 80px;
+	width: 50%;
+	padding: 0 70px;
+	left: 50%;
+	position: absolute;
+	bottom: 5%;
+	transform: translateX(-50%);
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	z-index: 5;
+}
+
+.substrate {
+	height: 45px;
+	width: 100%;
+	padding: 0 30px;
+	left: 50%;
+	position: absolute;
+	bottom: 5%;
+	transform: translateX(-50%);
+	-webkit-clip-path: polygon(0% 100%, 3% 0%, 97% 0%, 100% 100%);
+    clip-path: polygon(0% 100%, 3% 0%, 97% 0%, 100% 100%);
+	background: rgba(138,138,138,1);
+	background: -moz-linear-gradient(top, rgba(138,138,138,1) 0%, rgba(235,235,235,0.25) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(138,138,138,1)), color-stop(100%, rgba(235,235,235,0.25)));
+	background: -webkit-linear-gradient(top, rgba(138,138,138,1) 0%, rgba(235,235,235,0.25) 100%);
+	background: -o-linear-gradient(top, rgba(138,138,138,1) 0%, rgba(235,235,235,0.25) 100%);
+	background: -ms-linear-gradient(top, rgba(138,138,138,1) 0%, rgba(235,235,235,0.25) 100%);
+	background: linear-gradient(to bottom, rgba(138,138,138,1) 0%, rgba(235,235,235,0.25) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8a8a8a', endColorstr='#ebebeb', GradientType=0 );	display: -webkit-flex;
+	z-index: 1;
+}
+.nav {
+	position: relative;
+	z-index: 6;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
+
+.nav__item {
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0 20px;
+}
+
+.nav__item:hover {
+	transform: scale(1.2);
+}
+
+.nav__item_calc {
+	background: url(../img/calculating.svg) no-repeat center center / cover;
+}
+
+.nav__item_post {
+	background: url(../img/post.svg) no-repeat center center / cover;
+}
+
+.nav__item_weather {
+	background: url(../img/sun.svg) no-repeat center center / cover;
+}
