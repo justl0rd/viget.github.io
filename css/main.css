@@ -194,7 +194,7 @@ button:active {
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
-	display: flex;
+	display: none;
 	-webkit-flex-wrap: wrap;
 	-moz-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
@@ -266,3 +266,49 @@ button:active {
 .calculator__func-buttons {
 	width: 40%;
 }
+
+
+
+
+/*unworked shit*/
+
+.calculator_open {
+	display: flex;
+	/*animation: open 1s ease-in;*/
+}
+
+.calculator_close {
+	/*animation: close 1s ease-in;*/
+}
+
+
+/*@keyframes open {
+
+	0% {
+		transform: translateY(200vh);
+	}
+
+	50% {
+		transform: translateY(100vh);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}*/
+
+@keyframes close {
+/*	0% {
+		display: flex;
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(100vh);
+	}
+
+	100% {
+		transform: translateY(200vh);
+		display: none;
+	}
+}*/

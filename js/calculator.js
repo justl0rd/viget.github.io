@@ -1,47 +1,98 @@
 'use strict'
 
 class Calculator {
-	constructor(parentEl) {
+	constructor(container, activateTrigger) {
 		this.state = {
-			isOpen: false
+			isOpen: false,
+			display: []
 		}
 
-		this.createElements(parentEl);
-		window.addEventListener('click', this.showElement());
-		this.stateHandler();
+		this.createElements(container);
+		activateTrigger.addEventListener('click', this.showElement());
+		container.addEventListener('click', this.getDisplayData());
+		this.stateIsOpenHandler(false);
+
 	}
 
 	showElement() {
-		const calculator = parentEl.querySelector('.calculator'),
-			state = this.state;
+		const calculator = container.querySelector('.calculator'),
+			state = this.state,
+			activateHandler = this.stateIsOpenHandler.bind(this);
 
 		return e => {
 			const {target} = e;
-
-			if (target.contains(calculator)) {
-				state.isOpen = true;
-				this.stateHandler();
-			}
-
-			if (!parentEl.contains(target)) {
-				state.isOpen = false;
-				this.stateHandler();
+			
+			if (target.className === activateTrigger.className) {
+				if (!state.isOpen) {
+					calculator.classList.add('calculator_open');
+					calculator.classList.remove('calculator_close');
+					activateHandler(true);
+				}
+				else {
+					calculator.classList.add('calculator_close');
+					calculator.classList.remove('calculator_open');
+					activateHandler(false);
+				}
 			}
 		}
 	}
 
-	stateHandler() {
-		const calculator = parentEl.querySelector('.calculator');
+	getDisplayData() {
+		const state = this.state,
+			showInput = this.stateDisplayHandler.bind(this),
+			clear = this.clearDisplay.bind(this),
+			result = this.result.bind(this);
 
-		setTimeout(() => {
-			if (this.state.isOpen) {
+		return e => {
+			const {textContent: value} = e.target;
 
-				calculator.classList.add('active');
+			if (e.target.classList.contains('calculator__num-button') || e.target.classList.contains('calculator__func-button')) {
+				state.display.push(value);
+				showInput();
 			}
-			else{
-				calculator.classList.remove('active');
+
+			switch(value) {
+				case 'ce':
+					clear();
+					break;
+				case '=':
+					result();
+					break;
+				case '0':
+					if (state.display[0] == 0) {
+						alert('Число не может начинатся с нуля!');
+						clear();
+					}
+					break;
 			}
-		}, 0);
+		}
+	}
+
+	clearDisplay() {
+		const {display} = this.state,
+			displayEl = document.querySelector('.calculator__display');
+
+		display.splice(0, display.length);
+		displayEl.innerText = '';
+	}
+
+	result() {
+		const {display} = this.state,
+			displayEl = document.querySelector('.calculator__display'),
+			resultStr = display.splice(0, display.length - 1).join('');
+		displayEl.innerText = `${eval(resultStr)}`;
+		display.splice(0, display.length);
+	}
+
+	stateIsOpenHandler(isOpen) {
+		setTimeout(() => {this.state.isOpen = isOpen}, 1000);
+	}
+
+	stateDisplayHandler() {
+		const {display} = this.state,
+			displayEl = document.querySelector('.calculator__display');
+
+		displayEl.innerText = display.join('');
 	}
 
 	createElements(container) {
@@ -52,7 +103,7 @@ class Calculator {
 			numButtons = document.createElement('div'),
 			funcButtons = document.createElement('div'),
 
-		funcButtonsNames = [{plus:'+'}, {min:'-'}, {equ:'='}, {dot:'.'}, {mul:'*'}, {div:'/'}, {mod:'%'}];
+		funcButtonsNames = [{plus:'+'}, {min:'-'}, {equ:'='}, {dot:'.'}, {mul:'*'}, {div:'/'}, {mod:'%'}, {del: 'ce'}];
 
 		calculator.classList.add('calculator');
 		display.classList.add('calculator__display');
@@ -82,8 +133,10 @@ class Calculator {
 	}
 }
 
-const parentEl = document.querySelector('.calc');
-const calculator = new Calculator(parentEl);
+const container = document.querySelector('#calc'),
+	activateTrigger = document.querySelector('.nav__item_calc');
+
+const calculator = new Calculator(container, activateTrigger);
 
 
 
