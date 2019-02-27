@@ -109,12 +109,13 @@ button:active {
 /* Navigtion */
 .main {
 	position: relative;
-	height: 80px;
+	height: 90px;
 	width: 50%;
 	padding: 0 70px;
 	left: 50%;
 	position: absolute;
 	bottom: 5%;
+	overflow: hidden;
 	transform: translateX(-50%);
 	display: -moz-flex;
 	display: -ms-flex;
@@ -130,7 +131,7 @@ button:active {
 	padding: 0 30px;
 	left: 50%;
 	position: absolute;
-	bottom: 5%;
+	bottom: 0;
 	transform: translateX(-50%);
 	-webkit-clip-path: polygon(0% 100%, 3% 0%, 97% 0%, 100% 100%);
     clip-path: polygon(0% 100%, 3% 0%, 97% 0%, 100% 100%);
@@ -146,6 +147,7 @@ button:active {
 }
 .nav {
 	position: relative;
+    padding-top: 5px;
 	z-index: 6;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -160,6 +162,8 @@ button:active {
 	width: 50px;
 	height: 50px;
 	margin: 0 20px;
+	position: relative;
+    transition: all 0.5s ease;
 }
 
 .nav__item:hover {
@@ -170,12 +174,57 @@ button:active {
 	background: url(../img/calculating.svg) no-repeat center center / cover;
 }
 
+.nav__item_calc:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: -45px;
+    opacity: 0.4;
+    border-radius: 3px;
+    filter: blur(2px);
+    transform: scale(1, -1);
+    background: url(../img/calculating.svg) no-repeat center bottom / 60px;
+}
+
 .nav__item_post {
 	background: url(../img/post.svg) no-repeat center center / cover;
 }
 
+.nav__item_post:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: -42px;
+    opacity: 0.4;
+    border-radius: 3px;
+    filter: blur(2px);
+    transform: scale(1, -1);
+    background: url(../img/post.svg) no-repeat center bottom / 60px;
+}
+
 .nav__item_weather {
 	background: url(../img/sun.svg) no-repeat center center / cover;
+}
+
+.nav__item_weather:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: -42px;
+    opacity: 0.4;
+    border-radius: 3px;
+    filter: blur(2px);
+    transform: scale(1, -1);
+    background: url(../img/sun.svg) no-repeat center bottom / 60px;
 }
 
 /* Calculator */
