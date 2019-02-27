@@ -233,6 +233,10 @@ button:active {
 	line-height: 24px;
 }
 
+.calculator__func-button_equ {
+	order: 1;
+}
+
 .func-button__dot {
 	line-height: 15px;
 }

@@ -56,7 +56,12 @@ class Calculator {
 					clear();
 					break;
 				case '=':
-					result();
+					
+					if (state.display[0] == '=') {
+						alert('Введите число');
+						clear();
+					}
+					else result();
 					break;
 				case '0':
 					if (state.display[0] == 0) {
