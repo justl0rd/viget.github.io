@@ -371,3 +371,23 @@ button:active {
 		opacity: 0;
 	}
 }
+
+/* ------ Media Queries ------ */
+
+/* 568-1200px */
+@media screen and (max-width: 1200px) {
+	body {
+		background: url(../img/bg-1200.jpg) no-repeat center center/cover;
+	}
+}
+
+/* 320-568px */
+@media screen and (max-width: 568px) {
+	body {
+		background: url(../img/bg-586.jpg) no-repeat center center/cover;
+	}
+	.calculator {
+		max-width: 280px;
+	    padding: 30px 0px 20px;
+	}
+}
