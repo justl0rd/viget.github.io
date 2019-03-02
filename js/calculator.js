@@ -31,6 +31,7 @@ class Calculator {
 				else {
 					calculator.classList.add('calculator_close');
 					calculator.classList.remove('calculator_open');
+					setTimeout(()=>{calculator.classList.remove('calculator_close')}, 1500);
 					activateHandler(false);
 				}
 			}
