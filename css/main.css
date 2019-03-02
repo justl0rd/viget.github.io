@@ -237,17 +237,9 @@ button:active {
 	position: fixed;
 	top: 40%;
 	left: 50%;
-	opacity: 0;
 	transform: translate(-50%, -50%);
 	padding: 40px 0px 30px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	-o-flex-wrap: wrap;
+	display: none;
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -326,11 +318,21 @@ button:active {
 /*unworked shit*/
 
 .calculator_open {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 	animation: open 0.7s ease-out;
-	opacity: 1;
 }
 
 .calculator_close {
+	opacity: 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 	animation: close 0.7s ease-in;
 }
 
@@ -341,11 +343,8 @@ button:active {
 		top: 0;
 		left: 0;
 		transform: translate(-50%, -50%) scale(0);
-		opacity: 0;
 	}
-	1% {
-		opacity: 1;
-	}
+
 	100% {
 		top: 50%
 		left: 50%;
@@ -355,20 +354,18 @@ button:active {
 
 @keyframes close {
 	0% {
+		opacity: 1;
 		top: 50%
 		left: 50%;
 		transform: translate(-50%, -50%) scale(1);
-		opacity: 1;
 	}
 	99% {
-		opacity: 99;
+		opacity: 1;
 	}
-
 	100% {
 		top: 0;
 		left: 100%;
 		transform: translate(-50%, -50%) scale(0);
-		opacity: 0;
 	}
 }
 
