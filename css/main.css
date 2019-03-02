@@ -236,14 +236,14 @@ button:active {
 	border: 1px solid #eee;
 	position: fixed;
 	top: 40%;
-	left: 50%;	
+	left: 50%;
+	opacity: 0;
 	transform: translate(-50%, -50%);
 	padding: 40px 0px 30px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
-	display: none;
 	-webkit-flex-wrap: wrap;
 	-moz-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
@@ -326,42 +326,48 @@ button:active {
 /*unworked shit*/
 
 .calculator_open {
-	display: flex;
-	/*animation: open 1s ease-in;*/
+	animation: open 0.7s ease-out;
+	opacity: 1;
 }
 
 .calculator_close {
-	/*animation: close 1s ease-in;*/
+	animation: close 0.7s ease-in;
 }
 
 
-/*@keyframes open {
+@keyframes open {
 
 	0% {
-		transform: translateY(200vh);
+		top: 0;
+		left: 0;
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
 	}
-
-	50% {
-		transform: translateY(100vh);
+	1% {
+		opacity: 1;
 	}
-
 	100% {
-		transform: translateY(0);
+		top: 50%
+		left: 50%;
+		transform: translate(-50%, -50%) scale(1);
 	}
-}*/
+}
 
 @keyframes close {
-/*	0% {
-		display: flex;
-		transform: translateY(0);
+	0% {
+		top: 50%
+		left: 50%;
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
 	}
-
-	50% {
-		transform: translateY(100vh);
+	99% {
+		opacity: 99;
 	}
 
 	100% {
-		transform: translateY(200vh);
-		display: none;
+		top: 0;
+		left: 100%;
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
 	}
-}*/
+}
